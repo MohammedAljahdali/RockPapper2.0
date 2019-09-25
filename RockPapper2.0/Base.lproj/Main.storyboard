@@ -33,14 +33,14 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEv-bI-pxF" userLabel="Rock">
                                 <rect key="frame" x="54.5" y="442.5" width="75" height="65"/>
-                                <state key="normal" image="rock"/>
+                                <state key="normal" image="0"/>
                                 <connections>
                                     <action selector="play:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UrP-cb-vNO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25j-kC-FMD" userLabel="Scissor">
                                 <rect key="frame" x="284.5" y="442.5" width="75" height="65"/>
-                                <state key="normal" image="scissors"/>
+                                <state key="normal" image="2"/>
                                 <connections>
                                     <action selector="play:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0dP-cA-s42"/>
                                 </connections>
@@ -50,12 +50,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="History"/>
                                 <connections>
-                                    <segue destination="IaY-1R-DXI" kind="show" id="4MJ-Sy-Rq4"/>
+                                    <segue destination="IaY-1R-DXI" kind="show" identifier="HistoryTableView" id="4MJ-Sy-Rq4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Rb-me-v6R" userLabel="Papper">
                                 <rect key="frame" x="169.5" y="442.5" width="75" height="65"/>
-                                <state key="normal" image="paper"/>
+                                <state key="normal" image="1"/>
                                 <connections>
                                     <action selector="play:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xqO-yq-gTQ"/>
                                 </connections>
@@ -130,18 +130,34 @@
         <!--History Table View Controller-->
         <scene sceneID="EzP-ay-KFV">
             <objects>
-                <tableViewController id="IaY-1R-DXI" customClass="HistoryTableViewController" customModule="RockPapper2_0" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="HistoryTableView" id="IaY-1R-DXI" customClass="HistoryTableViewController" customModule="RockPapper2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hWB-c9-KIl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="GvK-js-MD4">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="historyCell" textLabel="wl4-Lc-4Iq" detailTextLabel="7hU-Be-UO8" style="IBUITableViewCellStyleSubtitle" id="GvK-js-MD4">
+                                <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GvK-js-MD4" id="Cuj-vo-sK2">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wl4-Lc-4Iq">
+                                            <rect key="frame" x="20" y="10" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7hU-Be-UO8">
+                                            <rect key="frame" x="20" y="31.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -158,8 +174,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="paper" width="75" height="65"/>
-        <image name="rock" width="75" height="65"/>
-        <image name="scissors" width="75" height="65"/>
+        <image name="0" width="75" height="65"/>
+        <image name="1" width="75" height="65"/>
+        <image name="2" width="75" height="65"/>
     </resources>
 </document>

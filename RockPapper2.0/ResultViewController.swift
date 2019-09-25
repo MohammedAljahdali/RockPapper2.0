@@ -12,7 +12,9 @@ class ResultViewController: UIViewController {
     
     var playerChoice: Int! = nil
     var opponentChoice: Int! = nil
+    var delegate: isAbleToReceiveData!
 
+    
     @IBOutlet weak var opponentChoiceImage: UIImageView!
     @IBOutlet weak var resultLabel: UILabel!
     
@@ -51,6 +53,10 @@ class ResultViewController: UIViewController {
             outcome = "error"
         }
         return outcome
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        delegate.pass(data: HistoryModel.init(playerChoice: playerChoice, opponentChoice: opponentChoice, outcome: result()))
     }
     
     override func viewDidLoad() {

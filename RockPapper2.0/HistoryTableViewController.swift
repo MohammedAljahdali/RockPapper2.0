@@ -9,22 +9,41 @@
 import UIKit
 
 class HistoryTableViewController: UITableViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    var historyList: [HistoryModel] = []
+    
+    func intToString(choice: Int) -> String {
+        switch choice {
+        case 0:
+            return "Rock"
+        case 1:
+            return "Papper"
+        case 2:
+            return "Scissors"
+        default:
+            return "error"
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return historyList.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell")!
+        let outcomeValue = historyList[indexPath.row].outcome
+        let opponentChoiceString = intToString(choice: historyList[indexPath.row].opponentChoice)
+        let playerChoiceImage = UIImage.init(named: "\(historyList[indexPath.row].playerChoice)")
+        cell.textLabel?.text = outcomeValue
+        cell.detailTextLabel?.text = "Your Opponent Choice was: \(opponentChoiceString)"
+        cell.imageView?.image = playerChoiceImage
+        return cell
+    }
+
 
 }
