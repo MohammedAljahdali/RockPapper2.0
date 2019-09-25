@@ -2,12 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Scissors1x.png",
+      "filename" : "Papper1x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Scissors2x.png",
       "scale" : "2x"
     },
     {

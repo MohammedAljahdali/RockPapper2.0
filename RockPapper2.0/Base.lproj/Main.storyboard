@@ -34,10 +34,16 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEv-bI-pxF" userLabel="Rock">
                                 <rect key="frame" x="54.5" y="442.5" width="75" height="65"/>
                                 <state key="normal" image="rock"/>
+                                <connections>
+                                    <action selector="play:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UrP-cb-vNO"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25j-kC-FMD" userLabel="Scissor">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25j-kC-FMD" userLabel="Scissor">
                                 <rect key="frame" x="284.5" y="442.5" width="75" height="65"/>
                                 <state key="normal" image="scissors"/>
+                                <connections>
+                                    <action selector="play:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0dP-cA-s42"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vm6-Qt-suc">
                                 <rect key="frame" x="179.5" y="657.5" width="55" height="33"/>
@@ -47,9 +53,12 @@
                                     <segue destination="IaY-1R-DXI" kind="show" id="4MJ-Sy-Rq4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Rb-me-v6R" userLabel="Papper">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Rb-me-v6R" userLabel="Papper">
                                 <rect key="frame" x="169.5" y="442.5" width="75" height="65"/>
                                 <state key="normal" image="paper"/>
+                                <connections>
+                                    <action selector="play:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xqO-yq-gTQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -71,25 +80,57 @@
             </objects>
             <point key="canvasLocation" x="133" y="139"/>
         </scene>
-        <!--View Controller-->
+        <!--Result View Controller-->
         <scene sceneID="Ax0-KP-MFL">
             <objects>
-                <viewController id="I2d-lb-HCw" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResultView" id="I2d-lb-HCw" customClass="ResultViewController" customModule="RockPapper2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yEd-vi-dDv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="h0z-TO-u3c">
+                                <rect key="frame" x="7" y="76" width="400" height="624"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bd8-48-Ujx">
+                                <rect key="frame" x="169" y="792" width="76" height="30"/>
+                                <state key="normal" title="Play Again!"/>
+                                <connections>
+                                    <action selector="playAgain:" destination="I2d-lb-HCw" eventType="touchUpInside" id="rbK-Eb-sUK"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gyj-rI-rFX">
+                                <rect key="frame" x="186" y="741" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Gyj-rI-rFX" firstAttribute="centerX" secondItem="h0z-TO-u3c" secondAttribute="centerX" id="267-z2-2Kx"/>
+                            <constraint firstItem="Bd8-48-Ujx" firstAttribute="top" secondItem="h0z-TO-u3c" secondAttribute="bottom" constant="92" id="3JZ-ct-eVb"/>
+                            <constraint firstItem="VRQ-5n-isB" firstAttribute="trailing" secondItem="h0z-TO-u3c" secondAttribute="trailing" constant="7" id="8He-Bf-RQS"/>
+                            <constraint firstItem="h0z-TO-u3c" firstAttribute="top" secondItem="VRQ-5n-isB" secondAttribute="top" constant="32" id="9IW-Tk-O3x"/>
+                            <constraint firstItem="VRQ-5n-isB" firstAttribute="bottom" secondItem="h0z-TO-u3c" secondAttribute="bottom" constant="162" id="ELY-m7-9vJ"/>
+                            <constraint firstItem="h0z-TO-u3c" firstAttribute="leading" secondItem="VRQ-5n-isB" secondAttribute="leading" constant="7" id="Lde-Nz-KWL"/>
+                            <constraint firstItem="Gyj-rI-rFX" firstAttribute="top" secondItem="h0z-TO-u3c" secondAttribute="bottom" constant="41" id="Q75-Cq-g7a"/>
+                            <constraint firstItem="Bd8-48-Ujx" firstAttribute="centerX" secondItem="h0z-TO-u3c" secondAttribute="centerX" id="sE1-RS-2ho"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="VRQ-5n-isB"/>
                     </view>
+                    <connections>
+                        <outlet property="opponentChoiceImage" destination="h0z-TO-u3c" id="3Pb-Zc-V0Y"/>
+                        <outlet property="resultLabel" destination="Gyj-rI-rFX" id="cq3-0U-egy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6fl-jU-Yri" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1677" y="139"/>
+            <point key="canvasLocation" x="1676.8115942028987" y="138.61607142857142"/>
         </scene>
-        <!--Table View Controller-->
+        <!--History Table View Controller-->
         <scene sceneID="EzP-ay-KFV">
             <objects>
-                <tableViewController id="IaY-1R-DXI" sceneMemberID="viewController">
+                <tableViewController id="IaY-1R-DXI" customClass="HistoryTableViewController" customModule="RockPapper2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hWB-c9-KIl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
